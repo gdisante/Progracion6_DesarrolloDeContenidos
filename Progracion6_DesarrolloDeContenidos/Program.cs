@@ -1,4 +1,5 @@
 using Progracion6_DesarrolloDeContenidos.Extensions;
+using Progracion6_DesarrolloDeContenidos.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,11 +19,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseMiddleware<BasicAuthenticationHandlerMiddleware>("Test");
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
+//ErrorHandlerCreado
 app.UseErrorHandler();
 
 app.MapControllers();

@@ -38,7 +38,7 @@ namespace Progracion6_DesarrolloDeContenidos.Controllers
         [HttpPost]
         [Route("CrearOrden")]
         public string crearOrden(OrdersHistory C) {
-            string query = "insert into orders_history ( ORDER_DATE, ACTION, STATUS, SYMBOL, QUANTITY, PRICE) values(getdate(),'"+C.ACTION+"','"+C.STATUS+"','"+C.SYMBOL+"',"+C.QUANTITY+"," + C.PRICE+");";
+            string query = "insert into orders ( ORDER_DATE, ACTION, STATUS, SYMBOL, QUANTITY, PRICE) values(getdate(),'"+C.ACTION+"','"+C.STATUS+"','"+C.SYMBOL+"',"+C.QUANTITY+"," + C.PRICE+");";
             SqlConnection sqlConn = new SqlConnection(connectionString);
             sqlConn.Open();
 
@@ -64,7 +64,7 @@ namespace Progracion6_DesarrolloDeContenidos.Controllers
 
             List<OrdersHistory> lh = new List<OrdersHistory>();
 
-            string Query = "select TX_NUMBER, ORDER_DATE, ACTION, STATUS, SYMBOL, QUANTITY, PRICE from ORDERS_HISTORY";
+            string Query = "select TX_NUMBER, ORDER_DATE, ACTION, STATUS, SYMBOL, QUANTITY, PRICE from ORDERS";
 
             SqlConnection sqlConn = new SqlConnection(connectionString);
             sqlConn.Open();
@@ -105,7 +105,7 @@ namespace Progracion6_DesarrolloDeContenidos.Controllers
 
             List<OrdersHistory> lh = new List<OrdersHistory>();
 
-            string Query = "select TX_NUMBER, ORDER_DATE, ACTION, STATUS, SYMBOL, QUANTITY, PRICE from ORDERS_HISTORY where YEAR(ORDER_DATE) ='"+ Year+"';";
+            string Query = "select TX_NUMBER, ORDER_DATE, ACTION, STATUS, SYMBOL, QUANTITY, PRICE from ORDERS where YEAR(ORDER_DATE) ='"+ Year+"';";
 
             SqlConnection sqlConn = new SqlConnection(connectionString);
             sqlConn.Open();

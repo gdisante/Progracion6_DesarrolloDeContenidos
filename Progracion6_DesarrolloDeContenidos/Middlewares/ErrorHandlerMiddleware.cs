@@ -5,7 +5,7 @@ using System.Text.Json;
 namespace Progracion6_DesarrolloDeContenidos.Middlewares
 {
     public class ErrorHandlerMiddleware
-    {
+    {   
         private readonly RequestDelegate _next;
         public ErrorHandlerMiddleware(RequestDelegate next) 
         { 
